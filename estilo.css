@@ -15,6 +15,8 @@ body {
 
 .content-wrapper-center {
     padding: 1rem;
+    max-width: 67.25rem;
+    margin: auto;
 }
 
 .header-menu {
@@ -83,6 +85,7 @@ img {
     list-style-type: none;
     padding: 0;
     background-color: var(--gray);
+    box-shadow: 4px 4px 0 var(--dark);
     border-radius: 5px;
     padding: 1em;
 }
@@ -97,11 +100,11 @@ img {
     overflow: hidden;
 }
 
-.testemunhos_wrapper{
+/* .testemunhos_wrapper{
     display: flex;
     flex-direction: column;
     gap: 3rem;
-}
+} */
 
 .testemunho {
     background-color: var(--gray);
@@ -153,4 +156,71 @@ img {
 .contato {
     margin-top: 6rem;
     margin-bottom: 6rem;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3rem;
+    grid-auto-flow: dense; /*vai preencher os espaços em branco*/
+}
+
+.row > .sm-12{
+    grid-column: 1 / -1;
+}
+
+@media screen and (min-width:46.25em) {
+    .row > .md-3{
+        grid-column: span 3;
+    }
+
+    .row > .md-4{
+        grid-column: span 4;
+    }
+
+    .row > .md-6{
+        grid-column: span 6;
+    }
+
+    .row > .md-9{
+        grid-column: span 9;
+    }
+
+    .row > .md-7-12{
+        grid-column: 7 / 13;
+    }
+
+    .row > .md-1-6{
+        grid-column: 1 / 7;
+    }
+}
+
+@media screen and (min-width:90em) {
+    .row > .lg-3{
+        grid-column: span 3;
+    }
+
+    .row > .lg-4{
+        grid-column: span 4;
+    }
+
+    .row > .lg-5{
+        grid-column: span 5;
+    }
+
+    .row > .lg-6{
+        grid-column: span 6;
+    }
+
+    .row > .lg-7{
+        grid-column: span 7;
+    }
+
+    .row > .lg-1-5{
+        grid-column: 1 / 6;
+    }
+
+    .row > .lg-8-12{
+        grid-column: 8 / 13;
+    }
 }
