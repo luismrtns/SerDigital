@@ -28,9 +28,13 @@ body {
     /* display: none; */
 }
 
+.header-menu li{
+    padding: .25rem;
+}
+
 .header-menu a {
     display: block;
-    padding: 1rem 1rem;
+    padding: 1.75rem 1rem;
 }
 
 a {
@@ -101,7 +105,7 @@ img {
 
 .hide {
     position: absolute;
-    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: rect(1px, 1px, 1px, 1px);
     padding: 0;
     border: 0;
     height: 1px;
@@ -223,10 +227,6 @@ img {
         text-align: left;
     }
 
-    .header-menu{
-        /* display: block; */
-    }
-
     .header-menu li{
         display: inline-block;
     }
@@ -343,6 +343,43 @@ img {
     justify-content: space-between;
 }
 
+.header-menu{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: var(--light);
+
+    transition: max-height .2s ease-in-out;
+}
+
+.menu-btn:checked ~ .header-menu{
+    max-height: 100vh;
+}
+
+.menu-btn:checked+.menu-icon .nav-icon{
+    background-color: transparent;
+}
+
+.header-menu:focus-within{
+    max-height: 100vh;
+}
+
+.menu-btn:checked ~ .header-menu a:hover{
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+@media screen and (min-width:46.25em){
+    .header-menu{
+        position: static;
+        max-height: initial;
+        background-color: initial;
+    }
+}
+
 .header nav{
     display: flex;
     flex-direction: column;
@@ -352,6 +389,7 @@ img {
 .menu-icon{
     position: relative;
     cursor: pointer;
+    height: 24px;
     /* user-select: none; */
 }
 
@@ -372,12 +410,27 @@ img {
     width: 22px;
     border-radius: 5px;
     position: absolute;
+
+    transition: transform .2s;
 }
 
 .nav-icon::after{
     transform: translateY(6px);
 }
 
+.menu-btn:checked + .menu-icon .nav-icon::after{
+    transform: rotate(45deg);
+}
+
 .nav-icon::before{
     transform: translateY(-6px);
+}
+
+.menu-btn:checked + .menu-icon .nav-icon::before{
+    transform: rotate(-45deg);
+}
+
+.menu-btn:focus-visible + .menu-icon{
+    outline: 2px solid black;
+    outline-offset: 3px;
 }
