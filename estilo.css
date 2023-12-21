@@ -25,7 +25,7 @@ body {
     list-style-type: none;
     padding: 0;
     text-align: right;
-    display: none;
+    /* display: none; */
 }
 
 .header-menu a {
@@ -154,6 +154,15 @@ img {
     text-decoration: none;
 }
 
+.icons li{
+    display: inline-block;
+    font-size: 2rem;
+}
+
+.icons li+li{
+    margin-left: 1rem;
+}
+
 .logo {
     text-transform: uppercase;
     text-decoration: none;
@@ -214,14 +223,8 @@ img {
         text-align: left;
     }
 
-    .header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
     .header-menu{
-        display: block;
+        /* display: block; */
     }
 
     .header-menu li{
@@ -245,6 +248,14 @@ img {
 
     h2 {
         font-size: 2.875rem;
+    }
+
+    .header{
+        align-items: center;
+    }
+
+    .menu-icon, .menu-btn{
+        display: none;
     }
 
     .contato_image{
@@ -323,4 +334,50 @@ img {
     .row > .lg-8-12{
         grid-column: 8 / 13;
     }
+}
+
+/* menu hamburger */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.menu-icon{
+    position: relative;
+    cursor: pointer;
+    /* user-select: none; */
+}
+
+.nav-icon{
+    display: inline-block;
+    background-color: var(--primary-color);
+    height: 2px;
+    width: 22px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.nav-icon::after, .nav-icon::before{
+    content: '';
+    display: inline-block;
+    background-color: var(--primary-color-dark);
+    height: 2px;
+    width: 22px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.nav-icon::after{
+    transform: translateY(6px);
+}
+
+.nav-icon::before{
+    transform: translateY(-6px);
 }
